@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CEBF0E41F5A4919004FA34F /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEBF0E31F5A4919004FA34F /* Trivia.swift */; };
+		1CEBF0E41F5A4919004FA34F /* TriviaQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEBF0E31F5A4919004FA34F /* TriviaQuestion.swift */; };
 		1CEBF0E81F5A56AE004FA34F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEBF0E71F5A56AE004FA34F /* Game.swift */; };
 		97093D3C1C913506001275BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97093D3B1C913506001275BC /* AppDelegate.swift */; };
 		97093D3E1C913506001275BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97093D3D1C913506001275BC /* ViewController.swift */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1CEBF0E31F5A4919004FA34F /* Trivia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Trivia.swift; path = ../Trivia.swift; sourceTree = "<group>"; };
+		1CEBF0E31F5A4919004FA34F /* TriviaQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriviaQuestion.swift; path = ../TriviaQuestion.swift; sourceTree = "<group>"; };
 		1CEBF0E71F5A56AE004FA34F /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		97093D381C913506001275BC /* TrueFalseStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrueFalseStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97093D3B1C913506001275BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		97093D3A1C913506001275BC /* TrueFalseStarter */ = {
 			isa = PBXGroup;
 			children = (
-				1CEBF0E31F5A4919004FA34F /* Trivia.swift */,
+				1CEBF0E31F5A4919004FA34F /* TriviaQuestion.swift */,
 				97093D3B1C913506001275BC /* AppDelegate.swift */,
 				97093D3D1C913506001275BC /* ViewController.swift */,
 				1CEBF0E71F5A56AE004FA34F /* Game.swift */,
@@ -147,7 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CEBF0E81F5A56AE004FA34F /* Game.swift in Sources */,
-				1CEBF0E41F5A4919004FA34F /* Trivia.swift in Sources */,
+				1CEBF0E41F5A4919004FA34F /* TriviaQuestion.swift in Sources */,
 				97093D3E1C913506001275BC /* ViewController.swift in Sources */,
 				97093D3C1C913506001275BC /* AppDelegate.swift in Sources */,
 			);

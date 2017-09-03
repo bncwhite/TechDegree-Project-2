@@ -1,5 +1,5 @@
 //
-//  Trivia.swift
+//  TriviaQuestion.swift
 //  TrueFalseStarter
 //
 //  Created by Bradley White on 9/1/17.
@@ -8,10 +8,8 @@
 
 struct Trivia {
     let question : String
-    let answer : String
-    let firstFalseAnswer : String
-    let secondFalseAnswer : String
-    let thirdFalseAnswer : String
+    let correctAnswer : String
+    var answerChoices : [String]
 }
 
 
