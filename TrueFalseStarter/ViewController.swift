@@ -33,6 +33,10 @@ class ViewController: UIViewController
         // Start game
         playGameStartSound()
         displayQuestion()
+        for button in answerButtons
+        {
+            button.layer.cornerRadius = 20.0
+        }
     }
 
     override func didReceiveMemoryWarning()

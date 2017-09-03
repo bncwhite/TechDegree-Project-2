@@ -4,9 +4,8 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="4144" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,63 +21,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="J1V-MS-ECi" userLabel="Option 1">
-                                <rect key="frame" x="36" y="207" width="303" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="J1V-MS-ECi" userLabel="Option 1">
+                                <rect key="frame" x="36" y="230" width="303" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.047058823529411764" green="0.47450980392156861" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="TYJ-ZG-ic0"/>
-                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="True"/>
+                                <state key="normal" title="Option Button One"/>
                                 <connections>
                                     <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ua4-iz-7ik"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="AS4-HX-g9f" userLabel="Option 2">
-                                <rect key="frame" x="36" y="287" width="303" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="AS4-HX-g9f" userLabel="Option 2">
+                                <rect key="frame" x="36" y="310" width="303" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="BgF-Kb-ht4"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="False"/>
+                                <state key="normal" title="Option Button Two"/>
                                 <connections>
                                     <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xrb-Yf-a3u"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sEB-3F-kYi" userLabel="Option 3">
-                                <rect key="frame" x="36" y="367" width="303" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sEB-3F-kYi" userLabel="Option 3">
+                                <rect key="frame" x="36" y="390" width="303" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="hh4-RB-GKy"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="True"/>
+                                <state key="normal" title="Option Button Three"/>
                                 <connections>
                                     <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ff4-zt-54U"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DHn-hf-HyM" userLabel="Option 4">
-                                <rect key="frame" x="36" y="447" width="303" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DHn-hf-HyM" userLabel="Option 4">
+                                <rect key="frame" x="36" y="470" width="303" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Gqp-yg-JPN"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="False"/>
+                                <state key="normal" title="Option Button Four"/>
                                 <connections>
                                     <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sO2-aB-ee1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOB-Ky-fKe">
-                                <rect key="frame" x="36" y="577" width="303" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sorry, that's not it." textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fd7-LN-63n">
+                                <rect key="frame" x="36" y="150" width="303" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
+                                <color key="textColor" red="0.2477969229221344" green="0.57904976606369019" blue="0.53045558929443359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" text="Sample Question" textAlignment="center" lineBreakMode="clip" numberOfLines="7" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="I3V-ih-1Ky">
+                                <rect key="frame" x="36" y="70" width="303" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOB-Ky-fKe">
+                                <rect key="frame" x="36" y="550" width="303" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="kaq-wf-zFx"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Play Again"/>
@@ -86,55 +89,8 @@
                                     <action selector="playAgain" destination="BYZ-38-t0r" eventType="touchUpInside" id="fEm-vu-YJw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry, that's not it." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fd7-LN-63n">
-                                <rect key="frame" x="36" y="127" width="303" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="UlS-K3-urM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
-                                <color key="textColor" red="0.2477969229221344" green="0.57904976606369019" blue="0.53045558929443359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3V-ih-1Ky">
-                                <rect key="frame" x="36" y="47" width="303" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="eFP-hd-1mh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.031372549019607843" green="0.16862745098039217" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="DHn-hf-HyM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="1t8-Le-pwD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fd7-LN-63n" secondAttribute="trailing" constant="20" id="3Zl-Jd-mCh"/>
-                            <constraint firstItem="fd7-LN-63n" firstAttribute="top" secondItem="I3V-ih-1Ky" secondAttribute="bottom" constant="30" id="5DY-tT-WMi"/>
-                            <constraint firstItem="nOB-Ky-fKe" firstAttribute="top" secondItem="DHn-hf-HyM" secondAttribute="bottom" constant="80" id="5tn-JQ-xF2"/>
-                            <constraint firstItem="J1V-MS-ECi" firstAttribute="top" secondItem="fd7-LN-63n" secondAttribute="bottom" constant="30" id="9yg-Xo-Kdd"/>
-                            <constraint firstItem="I3V-ih-1Ky" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AUj-HO-Y20"/>
-                            <constraint firstItem="sEB-3F-kYi" firstAttribute="top" secondItem="AS4-HX-g9f" secondAttribute="bottom" constant="30" id="Ake-sf-3Kx"/>
-                            <constraint firstItem="fd7-LN-63n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cw1-eX-CT2"/>
-                            <constraint firstItem="J1V-MS-ECi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GiD-0f-XXc"/>
-                            <constraint firstItem="I3V-ih-1Ky" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="HOs-Tw-817"/>
-                            <constraint firstItem="AS4-HX-g9f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Irr-I8-NkH"/>
-                            <constraint firstItem="nOB-Ky-fKe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qhe-Gp-18s"/>
-                            <constraint firstItem="sEB-3F-kYi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SaA-3p-2pc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="J1V-MS-ECi" secondAttribute="trailing" constant="20" id="TPL-jp-y6v"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AS4-HX-g9f" secondAttribute="trailing" constant="20" id="TsO-Al-Udw"/>
-                            <constraint firstItem="DHn-hf-HyM" firstAttribute="top" secondItem="sEB-3F-kYi" secondAttribute="bottom" constant="30" id="VsC-IP-f3b"/>
-                            <constraint firstItem="sEB-3F-kYi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="YsK-hY-QnU"/>
-                            <constraint firstItem="nOB-Ky-fKe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="bnl-6W-5eU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DHn-hf-HyM" secondAttribute="trailing" constant="20" id="cbp-iq-Ny3"/>
-                            <constraint firstItem="J1V-MS-ECi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="eDJ-is-ZTe"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nOB-Ky-fKe" secondAttribute="bottom" constant="40" id="gh0-HT-fic"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sEB-3F-kYi" secondAttribute="trailing" constant="20" id="hgu-5A-iF0"/>
-                            <constraint firstItem="AS4-HX-g9f" firstAttribute="top" secondItem="J1V-MS-ECi" secondAttribute="bottom" constant="30" id="oQQ-fL-4PB"/>
-                            <constraint firstItem="fd7-LN-63n" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="q7g-ay-WF4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="I3V-ih-1Ky" secondAttribute="trailing" constant="20" id="qQX-Ms-vuQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nOB-Ky-fKe" secondAttribute="trailing" constant="20" id="rhA-wN-WgN"/>
-                            <constraint firstItem="J1V-MS-ECi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sTZ-Xt-kSJ"/>
-                        </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
