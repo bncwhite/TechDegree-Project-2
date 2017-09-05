@@ -15,6 +15,10 @@ class ViewController: UIViewController
     var gameSound: SystemSoundID = 0
     var game: Game = Game()
     var answerButtons: [UIButton] = []
+    var defaultButtonColor : UIColor = UIColor(colorLiteralRed: 12 / 255.0, green: 121 / 255.0, blue: 150 / 255.0, alpha: 1.0)
+    let correctColor = UIColor(colorLiteralRed: 63 / 255.0, green: 148 / 255.0, blue: 135 / 255.0, alpha: 1.0)
+    let inCorrectColor = UIColor(colorLiteralRed: 244 / 255.0, green: 160 / 255.0, blue: 97 / 255.0, alpha: 1.0)
+    
     
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
@@ -47,51 +51,52 @@ class ViewController: UIViewController
     
     func displayQuestion()
     {
-        let triviaQuestion = game.pickQuestion()
-        questionField.text = triviaQuestion.question
-        
-        var randomIndexes: [Int] = []
-        
-        while randomIndexes.count != answerButtons.count {
-            let index = GKRandomSource.sharedRandom().nextInt(upperBound: answerButtons.count)
-            if !randomIndexes.contains(index)
-            {
-                randomIndexes.append(index)
-            }
-        }
+        let question = game.pickQuestion()
+        questionField.text = question.question
         
         for button in answerButtons
         {
+            button.backgroundColor = defaultButtonColor
             button.isEnabled = true
-            button.alpha = 1.0
-            button.backgroundColor?.withAlphaComponent(1.0)
         }
         
-        for button in answerButtons
-        {
-            switch randomIndexes[0]
-            {
-                case 0:
-                    button.setTitle(triviaQuestion.answer, for: UIControlState.normal)
-                case 1:
-                    button.setTitle(triviaQuestion.firstFalseAnswer, for: UIControlState.normal)
-                case 2:
-                    button.setTitle(triviaQuestion.secondFalseAnswer, for: UIControlState.normal)
-                case 3:
-                    button.setTitle(triviaQuestion.thirdFalseAnswer, for: UIControlState.normal)
-                    //let isDisabledButton = GKRandomSource.sharedRandom().nextBool()
-                    //if isDisabledButton
-                    //{
-                    //    button.setTitle("N/A", for: UIControlState.normal)
-                    //    button.isEnabled = false
-                    //}
-                default: button.titleLabel?.text = "Out of available options for this question"
-            }
-            randomIndexes.remove(at: 0)
-        }
+        assignButtonTitles(for: question)
         
         answerLabel.isHidden = true
         playAgainButton.isHidden = true
+    }
+    
+    func assignButtonTitles(for triviaQuestion: TriviaQuestion)
+    {
+        var consumedIndexes: [Int] = []
+        let numberOfChoices: Int = triviaQuestion.answerChoices.count
+        
+        while consumedIndexes.count < numberOfChoices {
+            let index = GKRandomSource.sharedRandom().nextInt(upperBound: numberOfChoices)
+            if !consumedIndexes.contains(index)
+            {
+                consumedIndexes.append(index)
+            }
+        }
+        
+        for choice in 0..<triviaQuestion.answerChoices.count
+        {
+            let index = consumedIndexes[0]
+            answerButtons[choice].setTitle(triviaQuestion.answerChoices[index], for: .normal)
+            consumedIndexes.remove(at: 0)
+        }
+        
+        if numberOfChoices < answerButtons.count
+        {
+            //let remainingUnusedButtons = answerButtons.count - numberOfChoices
+            //let buttonIndexesToUse = answerButtons.count  - remainingUnusedButtons
+            for index in numberOfChoices..<answerButtons.count
+            {
+                let button = answerButtons[index]
+                button.setTitle("N/A", for: .normal)
+                button.isEnabled = false
+            }
+        }
     }
     
     func displayScore()
@@ -111,36 +116,34 @@ class ViewController: UIViewController
     
     @IBAction func checkAnswer(_ sender: UIButton)
     {
-        let correctAnswer = game.currentAnswer
+        let correctAnswer = game.correctAnswer
+        
+        for button in answerButtons
+        {
+            button.isEnabled = false
+        }
         
         if sender.currentTitle == correctAnswer {
             game.correctQuestions += 1
-            let correctColor = UIColor(colorLiteralRed: 63 / 255.0, green: 148 / 255.0, blue: 135 / 255.0, alpha: 1.0)
+            
             answerLabel.textColor = correctColor
             answerLabel.text = "Correct!"
         }
         else
         {
-            let inCorrectColor = UIColor(colorLiteralRed: 244 / 255.0, green: 160 / 255.0, blue: 97 / 255.0, alpha: 1.0)
             answerLabel.textColor = inCorrectColor
             answerLabel.text = "Sorry, that's not it."
-        }
-        answerLabel.isHidden = false
-        
-        for button in answerButtons
-        {
-            button.alpha = 0.34
-            button.isEnabled = false
-            
-            if button.currentTitle == correctAnswer
+            sender.backgroundColor = inCorrectColor
+            for button in answerButtons
             {
-                let whiteColor = UIColor(white: 1.0, alpha: 1.0)
-                //button.setTitleColor(whiteColor, for: UIControlState.disabled)
-                button.tintColor = whiteColor
-                //button.isOpaque = false
+                if button.currentTitle == correctAnswer
+                {
+                    button.backgroundColor = correctColor
+                }
             }
-            
         }
+        
+        answerLabel.isHidden = false
         
         // Increment the questions asked counter
         game.questionsAsked += 1
