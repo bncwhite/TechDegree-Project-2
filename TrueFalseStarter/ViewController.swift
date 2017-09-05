@@ -18,6 +18,7 @@ class ViewController: UIViewController
     var defaultButtonColor : UIColor = UIColor(colorLiteralRed: 12 / 255.0, green: 121 / 255.0, blue: 150 / 255.0, alpha: 1.0)
     let correctColor = UIColor(colorLiteralRed: 63 / 255.0, green: 148 / 255.0, blue: 135 / 255.0, alpha: 1.0)
     let inCorrectColor = UIColor(colorLiteralRed: 244 / 255.0, green: 160 / 255.0, blue: 97 / 255.0, alpha: 1.0)
+    //var defaultDisabledTextColor = UIColor.lightGray
     
     
     @IBOutlet weak var questionField: UILabel!
@@ -39,7 +40,7 @@ class ViewController: UIViewController
         displayQuestion()
         for button in answerButtons
         {
-            button.layer.cornerRadius = 20.0
+            button.layer.cornerRadius = 5.0
         }
     }
 
@@ -51,26 +52,37 @@ class ViewController: UIViewController
     
     func displayQuestion()
     {
-        let question = game.pickQuestion()
-        questionField.text = question.question
+        game.pickQuestion()
+        questionField.text = game.questionToDisplay.question
         
         for button in answerButtons
         {
             button.backgroundColor = defaultButtonColor
+            button.setTitleColor(UIColor.lightGray, for: UIControlState.disabled)
             button.isEnabled = true
         }
         
-        assignButtonTitles(for: question)
+        assignButtonTitles()
         
         answerLabel.isHidden = true
         playAgainButton.isHidden = true
     }
     
-    func assignButtonTitles(for triviaQuestion: TriviaQuestion)
+    func assignButtonTitles()
     {
+        let triviaQuestion = game.questionToDisplay
         let numberOfChoices: Int = triviaQuestion.answerChoices.count
         
-        randomizeAnswerLocations(for: triviaQuestion, with: numberOfChoices)
+        //randomizeAnswerLocations(for: triviaQuestion, with: numberOfChoices)
+        game.randomizeOrderOfAnswers()
+        
+        for buttonIndex in 0..<numberOfChoices
+        {
+            var consumedIndexes = game.consumedIndexes
+            let randomIndex = consumedIndexes[0]
+            answerButtons[buttonIndex].setTitle(triviaQuestion.answerChoices[randomIndex], for: .normal)
+            game.consumedIndexes.remove(at: 0)
+        }
         
         if numberOfChoices < answerButtons.count
         {
@@ -78,25 +90,25 @@ class ViewController: UIViewController
         }
     }
     
-    func randomizeAnswerLocations(for triviaQuestion: TriviaQuestion, with numberOfChoices: Int)
-    {
-        var consumedIndexes: [Int] = []
-        
-        while consumedIndexes.count < numberOfChoices {
-            let index = GKRandomSource.sharedRandom().nextInt(upperBound: numberOfChoices)
-            if !consumedIndexes.contains(index)
-            {
-                consumedIndexes.append(index)
-            }
-        }
-        
-        for buttonIndex in 0..<triviaQuestion.answerChoices.count
-        {
-            let randomIndex = consumedIndexes[0]
-            answerButtons[buttonIndex].setTitle(triviaQuestion.answerChoices[randomIndex], for: .normal)
-            consumedIndexes.remove(at: 0)
-        }
-    }
+//    func randomizeAnswerLocations(for triviaQuestion: TriviaQuestion, with numberOfChoices: Int)
+//    {
+//        var consumedIndexes: [Int] = []
+//        
+//        while consumedIndexes.count < numberOfChoices {
+//            let index = GKRandomSource.sharedRandom().nextInt(upperBound: numberOfChoices)
+//            if !consumedIndexes.contains(index)
+//            {
+//                consumedIndexes.append(index)
+//            }
+//        }
+//        
+//        for buttonIndex in 0..<triviaQuestion.answerChoices.count
+//        {
+//            let randomIndex = consumedIndexes[0]
+//            answerButtons[buttonIndex].setTitle(triviaQuestion.answerChoices[randomIndex], for: .normal)
+//            consumedIndexes.remove(at: 0)
+//        }
+//    }
     
     func disableButtons(usingIndexes numberOfChoices: Int)
     {
@@ -133,6 +145,9 @@ class ViewController: UIViewController
         for button in answerButtons
         {
             button.isEnabled = false
+            button.backgroundColor = UIColor(colorLiteralRed: 22 / 255.0, green: 71 / 255.0, blue: 95 / 255.0, alpha: 1.0)
+            let dimWhite = UIColor(white: 0.5, alpha: 0.25)
+            button.setTitleColor(dimWhite, for: UIControlState.disabled)
         }
         
         if sender.currentTitle == correctAnswer {
@@ -140,6 +155,7 @@ class ViewController: UIViewController
             
             answerLabel.textColor = correctColor
             answerLabel.text = "Correct!"
+            sender.setTitleColor(UIColor.white, for: UIControlState.disabled)
         }
         else
         {
@@ -152,6 +168,8 @@ class ViewController: UIViewController
                 if button.currentTitle == correctAnswer
                 {
                     button.backgroundColor = correctColor
+                    let brightWhite = UIColor(white: 1.0, alpha: 1.0)
+                    button.setTitleColor(brightWhite, for: UIControlState.disabled)
                 }
             }
         }

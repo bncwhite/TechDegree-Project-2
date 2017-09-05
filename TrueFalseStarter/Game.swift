@@ -16,6 +16,8 @@ class Game
     var selectedIndex: Int = 0
     var correctAnswer: String = ""
     var questions : [TriviaQuestion] = []
+    var questionToDisplay : TriviaQuestion
+    var consumedIndexes: [Int] = []
     
     let questionOne = TriviaQuestion(withQuestion: "This was the only US President to serve more than two consecutive terms.",
                                      correctAnswer: "Franklin D. Roosevelt",
@@ -65,12 +67,28 @@ class Game
     {
         questions = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight, questionNine, questionTen, questionEleven, questionTwelve]
         questionsPerRound = questions.count
+        questionToDisplay = questionOne
     }
     
-    public func pickQuestion() -> TriviaQuestion
+    public func pickQuestion()
     {
         selectedIndex = GKRandomSource.sharedRandom().nextInt(upperBound: questions.count)
         correctAnswer = questions[selectedIndex].correctAnswer
-        return questions[selectedIndex]
+        questionToDisplay = questions[selectedIndex]
+    }
+    
+    public func randomizeOrderOfAnswers()
+    {
+        let numberOfChoices = questionToDisplay.answerChoices.count
+        
+        while consumedIndexes.count < numberOfChoices {
+            let index = GKRandomSource.sharedRandom().nextInt(upperBound: numberOfChoices)
+            if !consumedIndexes.contains(index)
+            {
+                consumedIndexes.append(index)
+            }
+        }
+        
+        
     }
 }
