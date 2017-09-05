@@ -68,8 +68,19 @@ class ViewController: UIViewController
     
     func assignButtonTitles(for triviaQuestion: TriviaQuestion)
     {
-        var consumedIndexes: [Int] = []
         let numberOfChoices: Int = triviaQuestion.answerChoices.count
+        
+        randomizeAnswerLocations(for: triviaQuestion, with: numberOfChoices)
+        
+        if numberOfChoices < answerButtons.count
+        {
+            disableButtons(usingIndexes: numberOfChoices)
+        }
+    }
+    
+    func randomizeAnswerLocations(for triviaQuestion: TriviaQuestion, with numberOfChoices: Int)
+    {
+        var consumedIndexes: [Int] = []
         
         while consumedIndexes.count < numberOfChoices {
             let index = GKRandomSource.sharedRandom().nextInt(upperBound: numberOfChoices)
@@ -79,17 +90,18 @@ class ViewController: UIViewController
             }
         }
         
-        for choice in 0..<triviaQuestion.answerChoices.count
+        for buttonIndex in 0..<triviaQuestion.answerChoices.count
         {
-            let index = consumedIndexes[0]
-            answerButtons[choice].setTitle(triviaQuestion.answerChoices[index], for: .normal)
+            let randomIndex = consumedIndexes[0]
+            answerButtons[buttonIndex].setTitle(triviaQuestion.answerChoices[randomIndex], for: .normal)
             consumedIndexes.remove(at: 0)
         }
-        
+    }
+    
+    func disableButtons(usingIndexes numberOfChoices: Int)
+    {
         if numberOfChoices < answerButtons.count
         {
-            //let remainingUnusedButtons = answerButtons.count - numberOfChoices
-            //let buttonIndexesToUse = answerButtons.count  - remainingUnusedButtons
             for index in numberOfChoices..<answerButtons.count
             {
                 let button = answerButtons[index]
@@ -134,6 +146,7 @@ class ViewController: UIViewController
             answerLabel.textColor = inCorrectColor
             answerLabel.text = "Sorry, that's not it."
             sender.backgroundColor = inCorrectColor
+            
             for button in answerButtons
             {
                 if button.currentTitle == correctAnswer
