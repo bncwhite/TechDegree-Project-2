@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CE3462C1F5F9CE400D3AF05 /* Boo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1CE3462B1F5F9CE400D3AF05 /* Boo.wav */; };
+		1CE3462E1F5F9CED00D3AF05 /* Cheer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1CE3462D1F5F9CED00D3AF05 /* Cheer.wav */; };
 		1CEBF0E41F5A4919004FA34F /* TriviaQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEBF0E31F5A4919004FA34F /* TriviaQuestion.swift */; };
 		1CEBF0E81F5A56AE004FA34F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEBF0E71F5A56AE004FA34F /* Game.swift */; };
 		97093D3C1C913506001275BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97093D3B1C913506001275BC /* AppDelegate.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CE3462B1F5F9CE400D3AF05 /* Boo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Boo.wav; sourceTree = "<group>"; };
+		1CE3462D1F5F9CED00D3AF05 /* Cheer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Cheer.wav; sourceTree = "<group>"; };
 		1CEBF0E31F5A4919004FA34F /* TriviaQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriviaQuestion.swift; path = ../TriviaQuestion.swift; sourceTree = "<group>"; };
 		1CEBF0E71F5A56AE004FA34F /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		97093D381C913506001275BC /* TrueFalseStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrueFalseStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +73,8 @@
 				97093D441C913506001275BC /* LaunchScreen.storyboard */,
 				97093D471C913506001275BC /* Info.plist */,
 				97093D521C932116001275BC /* GameSound.wav */,
+				1CE3462D1F5F9CED00D3AF05 /* Cheer.wav */,
+				1CE3462B1F5F9CE400D3AF05 /* Boo.wav */,
 			);
 			path = TrueFalseStarter;
 			sourceTree = "<group>";
@@ -132,10 +138,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CE3462E1F5F9CED00D3AF05 /* Cheer.wav in Resources */,
 				97093D531C932116001275BC /* GameSound.wav in Resources */,
 				97093D461C913506001275BC /* LaunchScreen.storyboard in Resources */,
 				97093D431C913506001275BC /* Assets.xcassets in Resources */,
 				97093D411C913506001275BC /* Main.storyboard in Resources */,
+				1CE3462C1F5F9CE400D3AF05 /* Boo.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

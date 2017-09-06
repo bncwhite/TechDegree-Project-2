@@ -13,6 +13,8 @@ import AudioToolbox
 class ViewController: UIViewController
 {
     var gameSound: SystemSoundID = 0
+    var cheerSound: SystemSoundID = 0
+    var booSound: SystemSoundID = 0
     var game: Game = Game()
     var answerButtons: [UIButton] = []
     var defaultButtonColor : UIColor = UIColor(colorLiteralRed: 12 / 255.0, green: 121 / 255.0, blue: 150 / 255.0, alpha: 1.0)
@@ -34,7 +36,7 @@ class ViewController: UIViewController
     {
         super.viewDidLoad()
         answerButtons = [optionButtonOne, optionButtonTwo, optionButtonThree, optionButtonFour]
-        loadGameStartSound()
+        loadGameSounds()
         // Start game
         playGameStartSound()
         displayQuestion()
@@ -151,6 +153,7 @@ class ViewController: UIViewController
         }
         
         if sender.currentTitle == correctAnswer {
+            playCorrectAnswerSound()
             game.correctQuestions += 1
             
             answerLabel.textColor = correctColor
@@ -159,6 +162,7 @@ class ViewController: UIViewController
         }
         else
         {
+            playInCorrectAnswerSound()
             answerLabel.textColor = inCorrectColor
             answerLabel.text = "Sorry, that's not it."
             sender.backgroundColor = inCorrectColor
@@ -229,11 +233,29 @@ class ViewController: UIViewController
         }
     }
     
-    func loadGameStartSound()
+    func loadGameSounds()
     {
-        let pathToSoundFile = Bundle.main.path(forResource: "GameSound", ofType: "wav")
-        let soundURL = URL(fileURLWithPath: pathToSoundFile!)
+        let pathToGameFile = Bundle.main.path(forResource: "GameSound", ofType: "wav")
+        let soundURL = URL(fileURLWithPath: pathToGameFile!)
         AudioServicesCreateSystemSoundID(soundURL as CFURL, &gameSound)
+        
+        let pathToCheerFile = Bundle.main.path(forResource: "Cheer", ofType: "wav")
+        let cheerSoundURL = URL(fileURLWithPath: pathToCheerFile!)
+        AudioServicesCreateSystemSoundID(cheerSoundURL as CFURL, &cheerSound)
+        
+        let pathToBooFile = Bundle.main.path(forResource: "Boo", ofType: "wav")
+        let booSoundURL = URL(fileURLWithPath: pathToBooFile!)
+        AudioServicesCreateSystemSoundID(booSoundURL as CFURL, &booSound)
+    }
+    
+    func playCorrectAnswerSound()
+    {
+        AudioServicesPlaySystemSound(cheerSound)
+    }
+    
+    func playInCorrectAnswerSound()
+    {
+        AudioServicesPlaySystemSound(booSound)
     }
     
     func playGameStartSound()
