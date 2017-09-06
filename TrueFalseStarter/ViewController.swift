@@ -75,6 +75,8 @@ class ViewController: UIViewController
         playAgainButton.isHidden = true
         seconds = 15
         timerLabel.text = "\(seconds)"
+        timerLabel.font = timerLabel.font.withSize(22.5)
+        timerLabel.isHidden = false
         startTimer()
         
     }
@@ -107,12 +109,14 @@ class ViewController: UIViewController
             default:
                 for button in answerButtons
                 {
-                    if seconds > 5
+                    if seconds < 5
                     {
+                        timerLabel.font = timerLabel.font.withSize(45.0)
                     button.backgroundColor = UIColor(colorLiteralRed: 22 / 255.0, green: 71 / 255.0, blue: 95 / 255.0, alpha: 1.0)
                     }
                     else
                     {
+                        //timerLabel.font = timerLabel.font.withSize(45.0)
                         button.backgroundColor = .red
                     }
                 }
@@ -176,6 +180,7 @@ class ViewController: UIViewController
         {
             timer.invalidate()
         }
+        timerLabel.isHidden = true
         
         let correctAnswer = game.correctAnswer
 
