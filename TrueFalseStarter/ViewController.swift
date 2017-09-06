@@ -15,16 +15,21 @@ class ViewController: UIViewController
     var gameSound: SystemSoundID = 0
     var cheerSound: SystemSoundID = 0
     var booSound: SystemSoundID = 0
+    
+    var timer: Timer = Timer()
+    var seconds = 15
+    
     var game: Game = Game()
+    
     var answerButtons: [UIButton] = []
+    
     var defaultButtonColor : UIColor = UIColor(colorLiteralRed: 12 / 255.0, green: 121 / 255.0, blue: 150 / 255.0, alpha: 1.0)
     let correctColor = UIColor(colorLiteralRed: 63 / 255.0, green: 148 / 255.0, blue: 135 / 255.0, alpha: 1.0)
     let inCorrectColor = UIColor(colorLiteralRed: 244 / 255.0, green: 160 / 255.0, blue: 97 / 255.0, alpha: 1.0)
-    //var defaultDisabledTextColor = UIColor.lightGray
-    
     
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var optionButtonOne: UIButton!
     @IBOutlet weak var optionButtonTwo: UIButton!
     @IBOutlet weak var optionButtonThree: UIButton!
@@ -68,6 +73,51 @@ class ViewController: UIViewController
         
         answerLabel.isHidden = true
         playAgainButton.isHidden = true
+        seconds = 15
+        timerLabel.text = "\(seconds)"
+        startTimer()
+        
+    }
+    
+    func startTimer()
+    {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    func updateTimer()
+    {
+        seconds -= 1
+        timerLabel.text = "\(seconds)"
+        if seconds == 0
+        {
+            let button = UIButton(type: .system)
+            button.setTitle("Time Expired", for: .normal)
+            checkAnswer(button)
+            timer.invalidate()
+        }
+        else if seconds <= 8
+        {
+            let modulo: Bool = seconds % 2 == 0
+            switch modulo {
+            case false:
+                for button in answerButtons
+                {
+                    button.backgroundColor = defaultButtonColor
+                }
+            default:
+                for button in answerButtons
+                {
+                    if seconds > 5
+                    {
+                    button.backgroundColor = UIColor(colorLiteralRed: 22 / 255.0, green: 71 / 255.0, blue: 95 / 255.0, alpha: 1.0)
+                    }
+                    else
+                    {
+                        button.backgroundColor = .red
+                    }
+                }
+            }
+        }
     }
     
     func assignButtonTitles()
@@ -91,26 +141,6 @@ class ViewController: UIViewController
             disableButtons(usingIndexes: numberOfChoices)
         }
     }
-    
-//    func randomizeAnswerLocations(for triviaQuestion: TriviaQuestion, with numberOfChoices: Int)
-//    {
-//        var consumedIndexes: [Int] = []
-//        
-//        while consumedIndexes.count < numberOfChoices {
-//            let index = GKRandomSource.sharedRandom().nextInt(upperBound: numberOfChoices)
-//            if !consumedIndexes.contains(index)
-//            {
-//                consumedIndexes.append(index)
-//            }
-//        }
-//        
-//        for buttonIndex in 0..<triviaQuestion.answerChoices.count
-//        {
-//            let randomIndex = consumedIndexes[0]
-//            answerButtons[buttonIndex].setTitle(triviaQuestion.answerChoices[randomIndex], for: .normal)
-//            consumedIndexes.remove(at: 0)
-//        }
-//    }
     
     func disableButtons(usingIndexes numberOfChoices: Int)
     {
@@ -142,8 +172,13 @@ class ViewController: UIViewController
     
     @IBAction func checkAnswer(_ sender: UIButton)
     {
-        let correctAnswer = game.correctAnswer
+        if timer.isValid
+        {
+            timer.invalidate()
+        }
         
+        let correctAnswer = game.correctAnswer
+
         for button in answerButtons
         {
             button.isEnabled = false
@@ -263,4 +298,3 @@ class ViewController: UIViewController
         AudioServicesPlaySystemSound(gameSound)
     }
 }
-

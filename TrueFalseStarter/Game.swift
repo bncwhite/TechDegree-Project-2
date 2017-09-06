@@ -19,6 +19,7 @@ class Game
     var questionToDisplay : TriviaQuestion
     var consumedIndexes: [Int] = []
     
+    
     let questionOne = TriviaQuestion(withQuestion: "This was the only US President to serve more than two consecutive terms.",
                                      correctAnswer: "Franklin D. Roosevelt",
                                      answerChoices: ["Franklin D. Roosevelt", "George Washington", "Woodrow Wilson", "Andrew Jackson"])
