@@ -44,54 +44,62 @@ class Game
     
     //Create the all the question data using the TriviaQuestion init()
     
-    let questionOne = TriviaQuestion(withQuestion: "This was the only US President to serve more than two consecutive terms.",
-                                     correctAnswer: "Franklin D. Roosevelt",
-                                     answerChoices: ["Franklin D. Roosevelt", "George Washington", "Woodrow Wilson", "Andrew Jackson"])
+    let questionOne = TriviaQuestion(withQuestion: "Who is the last character to join the team?",
+                                     correctAnswer: "Poo",
+                                     answerChoices: ["Poo", "Ness", "Paula", "Jeff"])
     
-    let questionTwo = TriviaQuestion(withQuestion: "Which of the following countries has the most residents?",
-                                     correctAnswer: "Nigeria",
-                                     answerChoices: ["Nigeria", "Russia", "Iran", "Vietnam"])
+    let questionTwo = TriviaQuestion(withQuestion: "Which team member equips baseball bats for weapons?",
+                                     correctAnswer: "Ness",
+                                     answerChoices: ["Ness", "Paula", "Jeff", "Poo"])
     
-    let questionThree = TriviaQuestion(withQuestion: "In what year was the United Nations founded?",
-                                       correctAnswer: "1945",
-                                       answerChoices: ["1945", "1918", "1919", "1954"])
+    let questionThree = TriviaQuestion(withQuestion: "Which team member uses yo-yos as their weapon?",
+                                       correctAnswer: "Paula",
+                                       answerChoices: ["Paula", "Ness", "Jeff", "Poo"])
     
-    let questionFour = TriviaQuestion(withQuestion: "The Titanic departed from the United Kingdom, where was it supposed to arrive?",
-                                      correctAnswer: "New York City",
-                                      answerChoices: ["New York City", "Paris", "Washington D.C.", "Boston"])
+    let questionFour = TriviaQuestion(withQuestion: "Which team member only uses one weapon and is difficult to obtain?",
+                                      correctAnswer: "Poo",
+                                      answerChoices: ["Poo", "Pokey", "Pickey", "Paula"])
     
-    let questionFive = TriviaQuestion(withQuestion: "Which nation produces the most oil?",
-                                      correctAnswer: "Canada",
-                                      answerChoices: ["Canada", "Iran", "Iraq", "Brazil"])
+    let questionFive = TriviaQuestion(withQuestion: "In which town do you initially meet the Runaway Five band?",
+                                      correctAnswer: "Twoson",
+                                      answerChoices: ["Twoson", "Onett", "Threed", "Fourside"])
     
-    let questionSix = TriviaQuestion(withQuestion: "Which country has most recently won consecutive World Cups in Soccer?",
-                                     correctAnswer: "Brazil",
-                                     answerChoices: ["Brazil", "Italy", "Argetina", "Spain"])
+    let questionSix = TriviaQuestion(withQuestion: "Which of the following is the hometown of Ness?",
+                                     correctAnswer: "Onett",
+                                     answerChoices: ["Onett", "Twoson", "Threed", "Fourside"])
     
-    let questionSeven = TriviaQuestion(withQuestion: "Which of the following rivers is longest?",
-                                       correctAnswer: "Mississippi",
-                                       answerChoices: ["Mississippi", "Yangtze", "Congo", "Mekong"])
+    let questionSeven = TriviaQuestion(withQuestion: "Which of the following is the hometown of Paula?",
+                                       correctAnswer: "Twoson",
+                                       answerChoices: ["Twoson", "Threed", "Onett", "Fourside"])
     
-    let questionEight = TriviaQuestion(withQuestion: "Which city is the oldest?",
-                                       correctAnswer: "Mexico City",
-                                       answerChoices: ["Mexico City", "Cape Town", "San Juan", "Sydney"])
+    let questionEight = TriviaQuestion(withQuestion: "Which of the following is the hometown of Jeff?",
+                                       correctAnswer: "Winters",
+                                       answerChoices: ["Winters", "Summers", "Fourside", "Dalaam"])
     
-    let questionNine = TriviaQuestion(withQuestion: "Which country was the first to allow women to vote in national elections?",
-                                      correctAnswer: "Poland",
-                                      answerChoices: ["Poland", "United States", "Sweden", "Senegal"])
+    let questionNine = TriviaQuestion(withQuestion: "Which of the following is the hometown of Poo?",
+                                      correctAnswer: "Dalaam",
+                                      answerChoices: ["Dalaam", "Winters", "Summers", "Fourside"])
     
-    let questionTen = TriviaQuestion(withQuestion: "Which of these countries won the most medals in the 2012 Summer Games?",
-                                     correctAnswer: "Great Britian",
-                                     answerChoices: ["Great Britian",  "France", "Germany", "Japan"])
-    let questionEleven = TriviaQuestion(withQuestion: "Brad is awesome!",
-                                        correctAnswer: "True",
-                                        answerChoices: ["True", "False"])
+    let questionTen = TriviaQuestion(withQuestion: "Which team member uses laser beam type of weapons?",
+                                     correctAnswer: "Jeff",
+                                     answerChoices: ["Jeff",  "Poo", "Ness", "Paula"])
+    let questionEleven = TriviaQuestion(withQuestion: "Who is the star of Earthbound?",
+                                        correctAnswer: "Ness",
+                                        answerChoices: ["Ness", "Paula", "Jeff", "Poo"])
     let questionTwelve = TriviaQuestion(withQuestion: "Which was the first Earthbound game to be translated and released to the USA", correctAnswer: "Earthbound", answerChoices: ["Earthbound Beginnings", "Earthbound", "Mother 3"])
+    let questionThirteen = TriviaQuestion(withQuestion: "Who do you call in order to save your game progress?", correctAnswer: "Dad", answerChoices: ["Dad", "Mom", "Sister", "Brother"])
+    let questionFourteen = TriviaQuestion(withQuestion: "How many melodies must be collected in order to approach the game boss?", correctAnswer: "8", answerChoices: ["8", "10", "12"])
+    let questionFifteen = TriviaQuestion(withQuestion: "Paula is able to use bottle rockets", correctAnswer: "False", answerChoices: ["True", "False"])
+    let questionSixteen = TriviaQuestion(withQuestion: "Buzzbuzz is a talking alien bee in the game?", correctAnswer: "True", answerChoices: ["False", "True"])
+    let questionSeventeen = TriviaQuestion(withQuestion: "Magicant is a dream-like world area of the the game", correctAnswer: "True", answerChoices: ["True", "False"])
+    let questionEighteen = TriviaQuestion(withQuestion: "The game starts in Summers", correctAnswer: "False", answerChoices: ["False", "True"])
+    let questionNinteen = TriviaQuestion(withQuestion: "How many players do you control when Poo joins the team?", correctAnswer: "3", answerChoices: ["1", "2", "3"])
+    let questionTwenty = TriviaQuestion(withQuestion: "The battle against Giygas takes place in which of the following time periods?", correctAnswer: "Past", answerChoices: ["Past", "Present", "Future"])
     
     init()
     {
         //Add all questions to the questions array
-        questions = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight, questionNine, questionTen, questionEleven, questionTwelve]
+        questions = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight, questionNine, questionTen, questionEleven, questionTwelve, questionThirteen, questionFourteen, questionFifteen, questionSixteen, questionSeven, questionEighteen, questionNinteen, questionTwenty]
         
         //Determine how many rounds will be in the game
         questionsPerRound = questions.count
