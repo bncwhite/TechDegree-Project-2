@@ -6,19 +6,43 @@
 //  Copyright © 2017 Treehouse. All rights reserved.
 //
 
+//This class controls the logic for the game.
+
 import GameKit
 
 class Game
 {
+    //Set during init()
     var questionsPerRound = 0
+    
+    //Incremented each time a question is answered
     var questionsAsked = 0
+    
+    //Incremented each time a question is answered correctly
     var correctQuestions = 0
+    
+    //Changes each time a question is asked and
+    //used to inform the game which question to remove from the questions array
     var selectedIndex: Int = 0
+    
+    //Set each time a question is asked and
+    //used to determine the correct answer by comparing this string to the pushed button's title
     var correctAnswer: String = ""
+    
+    //Holds all questions in an array and questions are randomly selected
+    //and questions are removed as the game progresses using the selectedIndex property
     var questions : [TriviaQuestion] = []
+    
+    //Set each time a qustion is asked and used in the ViewController in
+    //various functions to pull properties back of the currently asked question
     var questionToDisplay : TriviaQuestion
+    
+    //Holds Ints that are randomly selected so that a questions answer choices
+    //can be randomly added to the button titles. Each Int in the array is
+    //removed when looping through the button title assignments.
     var consumedIndexes: [Int] = []
     
+    //Create the all the question data using the TriviaQuestion init()
     
     let questionOne = TriviaQuestion(withQuestion: "This was the only US President to serve more than two consecutive terms.",
                                      correctAnswer: "Franklin D. Roosevelt",
@@ -66,11 +90,19 @@ class Game
     
     init()
     {
+        //Add all questions to the questions array
         questions = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight, questionNine, questionTen, questionEleven, questionTwelve]
+        
+        //Determine how many rounds will be in the game
         questionsPerRound = questions.count
+        
+        //Initialize the questionToDisplay property just to make the compiler happy
         questionToDisplay = questionOne
     }
     
+    //Pick a random int that is within the total count of the objects in the questions array
+    //Use the selectedIndex to grab a question from the questions array
+    //Assign the question to a property for the ViewController functions to utilize
     public func pickQuestion()
     {
         selectedIndex = GKRandomSource.sharedRandom().nextInt(upperBound: questions.count)
@@ -78,12 +110,19 @@ class Game
         questionToDisplay = questions[selectedIndex]
     }
     
+    //Assign random and non-repeatings Ints to the consumedIndexes array so that a question's
+    //answer choices are alway random when assigned to button titles
     public func randomizeOrderOfAnswers()
     {
         let numberOfChoices = questionToDisplay.answerChoices.count
         
+        //Add an equal amount of random Ints that equals how many choices a question has available
         while consumedIndexes.count < numberOfChoices {
+            
+            //Create a random Int
             let index = GKRandomSource.sharedRandom().nextInt(upperBound: numberOfChoices)
+            
+            //Prevent repeated Ints
             if !consumedIndexes.contains(index)
             {
                 consumedIndexes.append(index)
